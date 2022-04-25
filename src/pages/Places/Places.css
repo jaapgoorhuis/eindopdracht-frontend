@@ -1,0 +1,25 @@
+.searcbox {
+    padding: 15px;
+    border-bottom:1px solid #cccccc42;
+}
+
+.error-message {
+    color: red;
+    font-weight: bolder;
+    margin-top: 10px;
+}
+
+.placenames-box {
+    margin-left:15px;
+}
+
+i.remove-icon >svg {
+    color: #760f0f;
+    margin-left: 10px;
+    position: absolute;
+    padding-top: 2px;
+}
+
+i.remove-icon >svg :hover {
+    cursor: pointer;
+}

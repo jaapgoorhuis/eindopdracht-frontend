@@ -1,0 +1,31 @@
+button.search-button {
+    padding: 10px;
+}
+
+input.search-field {
+    padding:9px;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-right:none;
+    width: 300px;
+}
+
+button.search-button {
+    padding: 9px;
+    background-color: #310080;
+    box-sizing: border-box;
+    border-right: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-left:none;
+    color: white;
+}
+
+.search-form {
+    width: 100%;
+}
+
+button.search-button:hover {
+    cursor:pointer;
+}

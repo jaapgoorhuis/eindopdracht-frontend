@@ -1,0 +1,96 @@
+body {
+    font-family: ui-monospace;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:100vh;
+    background:#310080;
+}
+
+p.small-error-message {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.login-form-wrapper {
+    background-color:white;
+    width:100%;
+    border-radius: 5px;
+    max-width:300px;
+    display: inline-block;
+    padding:25px;
+}
+
+h2.login-title {
+    color: black;
+    font-weight: bold;
+    margin-bottom:5px;
+}
+
+small.login-sub-title {
+    color: grey;
+    font-weight: 100;
+}
+
+.input-field > input {
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    width:100%;
+    padding-left:30px;
+    height:30px;
+}
+
+.input-field > i {
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 6px;
+}
+
+svg {
+    color:#070012a3;
+}
+
+form.login-form {
+    margin-top:30px;
+}
+
+form.login-form > label {
+    font-size: 15px;
+}
+
+.input-field {
+    margin-bottom:20px;
+}
+
+button.submit-button {
+    width: 100%;
+    background: #310080;
+    height: 30px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #ccc;
+}
+
+button.submit-button > i {
+    justify-content: left;
+}
+
+button.submit-button > i > svg {
+    justify-content: left;
+    color: white;
+    padding-right: 10px;
+}
+
+button.submit-button:hover {
+    cursor:pointer;
+    background-color: #310080c7;
+}
+
+.error-message >h3 {
+    color: #310080;
+}

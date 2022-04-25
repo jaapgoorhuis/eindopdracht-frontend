@@ -1,0 +1,34 @@
+.weather-result-box {
+    width: 400px;
+    background-color: #efefef;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    margin-top: 25px;
+}
+.weather-result-inner-box {
+    padding-right: 10px;
+    padding-left:10px;
+}
+
+button.specific-result-button {
+    width: 100%;
+    padding: 5px;
+    background: #310080;
+    color: white;
+    border: 1px solid #CCC;
+}
+
+button.specific-result-button:active,visited {
+    background:#310080;
+}
+
+button.specific-result-button > a {
+    color:white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+button.specific-result-button:hover {
+    background-color:#310080c7;
+}

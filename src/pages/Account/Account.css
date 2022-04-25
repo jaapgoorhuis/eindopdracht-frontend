@@ -1,0 +1,9 @@
+form.edit-user-form {
+    width: 300px;
+    margin: 20px;
+}
+
+.succes-message {
+    color: #6c975d;
+    margin-bottom: 15px;
+}

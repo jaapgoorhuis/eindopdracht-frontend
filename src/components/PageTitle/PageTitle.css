@@ -1,0 +1,15 @@
+.page-title {
+    color:#310080;
+}
+
+p.page-description {
+    color: black;
+    font-size: 17px;
+}
+
+.title-container {
+    display: inline-block;
+    max-width:1000px;
+    width:100%;
+    margin-bottom:15px;
+}

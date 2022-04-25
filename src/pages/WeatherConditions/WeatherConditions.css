@@ -1,0 +1,23 @@
+.condition-filter-box {
+    margin: 20px;
+    border-bottom: 1px solid #cccccc42
+}
+
+select.condition {
+    width: 300px;
+    padding: 10px;
+    margin-bottom:20px;
+}
+
+.parameters-box {
+    margin:20px
+}
+
+input.form-input {
+    width: 284px;
+    padding: 10px;
+}
+
+.parameter {
+    margin-bottom:30px;
+}

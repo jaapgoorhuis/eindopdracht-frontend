@@ -1,0 +1,22 @@
+nav {
+    background: #310080;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+button.navbar-buttons {
+    margin: 10px;
+    padding:5px;
+    background: #310080;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #ccc;
+}
+
+button.navbar-buttons:hover {
+    cursor: pointer;
+    background-color: #760f0f;
+}
