@@ -2,7 +2,7 @@
 
 Dit project is ontwikkeld door Jaap Goorhuis als eindopdracht voor de frontend leerlijn 2022 op Hogeschool NOVI.
 
-###beschrijving
+### beschrijving
 Door middel van deze applicatie kun je minimaal 3 en maximaal 10 locaties in Gelderland
 filteren op basis van temperatuur, regenval en windkracht. De applicatie geeft een top 3 resultaat
 terug. 
