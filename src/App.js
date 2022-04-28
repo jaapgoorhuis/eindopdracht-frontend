@@ -52,14 +52,12 @@ return (
                     </Route>
                     :<SignIn />
                 }
-
                 {isauth ?
                     <Route exact path="/specific-result/:name">
                         <SpecificResult />
                     </Route>
                     :<SignIn />
                 }
-
             </Switch>
         </div>
     </>

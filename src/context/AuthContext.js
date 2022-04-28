@@ -2,7 +2,6 @@ import React, {useState, useEffect, createContext} from "react";
 import {useHistory} from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
-
 export const AuthContext = createContext({});
 
 const AuthContextProvider = ({children}) => {
@@ -10,27 +9,26 @@ const AuthContextProvider = ({children}) => {
         isAuth: false,
         user: null,
         status: 'pending',
-        apikey: '654b427c407676476a170bec7c42758d',
+        apikey: '',
     });
-
     const token = localStorage.getItem('token');
+    const history = useHistory();
 
     useEffect(() => {
-        //check ff of token verlopen is ...
-        if(token) {
-            const decodedToken = jwt_decode(token);
-            fetchUserData(decodedToken, token);
-        }
-        else {
-            console.log('test');
-            toggleAuth({
-                ...Auth,
-                status: 'done',
-            });
-        }
+            if(token) {
+                const decodedToken = jwt_decode(token);
+                const currentDate = Math.floor(new Date().getTime() / 1000);
+                if (currentDate <= decodedToken.exp) {
+                    fetchUserData(decodedToken, token);
+                }
+            }
+            else {
+                toggleAuth({
+                    ...Auth,
+                    status: 'done',
+                });
+            }
     },[]);
-
-    const history = useHistory();
 
     const data = {
         isauth: Auth.isAuth,
@@ -42,14 +40,12 @@ const AuthContextProvider = ({children}) => {
 
     async function fetchUserData(decodedToken, token) {
         try {
-            console.log(token);
             const userdata = await axios.get(`https://frontend-educational-backend.herokuapp.com/api/user`, {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,
                 }
             });
-
             const user = userdata.data;
             toggleAuth({
                 ...Auth,
@@ -75,10 +71,8 @@ const AuthContextProvider = ({children}) => {
         const token = data.accessToken;
         const decodedToken = jwt_decode(token);
         fetchUserData(decodedToken, token);
-        console.log('Gebruiker is ingelogd!');
         localStorage.setItem('token', token);
         history.push('/places');
-
     }
 
     function signOut() {

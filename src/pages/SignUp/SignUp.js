@@ -7,45 +7,35 @@ import {useHistory} from "react-router-dom";
 import {useForm} from "react-hook-form";
 
 function SignUp() {
-    const [inputs, setInputs] = useState({
-        status:'pending',
-    });
-
     const [serverError, toggleServerError] = useState(false);
     const History = useHistory();
     const { register, handleSubmit,watch, formState: { errors } } = useForm();
     const password = useRef({});
+    const [loading, toggleLoading] = useState(false);
     password.current = watch("password", "");
     console.log('ERRORS', errors);
+    const source = axios.CancelToken.source();
 
     async function onSubmit(data) {
         try {
-            const result = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
+            toggleLoading(true);
+            await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
+                cancelToken: source.token,
                 username: data.username,
                 email: data.email,
                 password: data.password,
                 role: ["user"],
             });
-            setInputs({
-                ...inputs,
-                status: 'done',
-            });
-            console.log(result);
-            if (inputs.status === 'done') {
-                History.push('/signin', {message: 'Account aangemaakt. U kunt nu inloggen'});
-            }
-
+            History.push('/signin');
+            return () => source.cancel();
         } catch (e) {
             console.error(e);
             console.log(e.response);
-            setInputs({
-                ...inputs,
-                status: 'done',
-            });
            toggleServerError(true);
         }
+        toggleLoading(false);
     }
-
+    if(loading) return "Loading...";
     return (
         <>
             <div className="wrapper">
@@ -53,7 +43,6 @@ function SignUp() {
                     <h2 className="login-title">Registreren</h2>
                     <small className="login-sub-title">WeatherApp</small>
                     <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-
                         <div className="input-field">
                             <label htmlFor="email">Email adres <br/></label>
                             <i><FontAwesomeIcon icon={faAt} /></i>
@@ -71,7 +60,6 @@ function SignUp() {
                             />
                             {errors.email && <p className="small-error-message">{errors.email.message}</p> }
                         </div>
-
                         <div className="input-field">
                             <label htmlFor="username">Gebruikersnaam <br/></label>
                             <i><FontAwesomeIcon icon={faUserPlus} /></i>
@@ -85,7 +73,6 @@ function SignUp() {
                             />
                             {errors.username && <p className="small-error-message">Dit veld is verplicht</p> }
                         </div>
-
                         <div className="input-field">
                             <label htmlFor="password">Wachtwoord <br/></label>
                             <i><FontAwesomeIcon icon={faLock} /></i>
@@ -103,7 +90,6 @@ function SignUp() {
                             />
                             {errors.password && <p className="small-error-message">Dit veld is verplicht</p> }
                         </div>
-
                         <div className="input-field">
                             <label htmlFor="repeat-password">Herhaal wachtwoord <br/></label>
                             <i><FontAwesomeIcon icon={faLock} /></i>
@@ -120,8 +106,6 @@ function SignUp() {
                             {errors.repeat_password && <p className="small-error-message">{errors.repeat_password.message}</p> }
                             {serverError && <p className="small-error-message">Dit account bestaat al.</p> }
                         </div>
-
-
                         <button
                             type="submit"
                             className="submit-button register-button"

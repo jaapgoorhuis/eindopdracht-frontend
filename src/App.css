@@ -14,7 +14,17 @@ h4 {
   margin-bottom: 0px;
 }
 
-
+.page-content-centered {
+  background-color: white;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  position: relative;
+  margin-bottom:50px;
+}
 body {
   font-family: ui-monospace;
 }
@@ -37,6 +47,7 @@ body {
   height:600px;
   border-radius: 15px;
   position: relative;
+  margin-bottom:50px;
 }
 
 .container {

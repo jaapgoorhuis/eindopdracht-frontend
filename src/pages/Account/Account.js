@@ -61,7 +61,6 @@ function Account() {
     }
 
     useEffect(()=> {
-
         async function getdata() {
             try {
                 const userdata = await axios.get('https://frontend-educational-backend.herokuapp.com/api/user', {

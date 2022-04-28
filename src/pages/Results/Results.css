@@ -10,6 +10,13 @@
     padding-left:10px;
 }
 
+@media(max-width: 500px) {
+    .weather-result-box {
+        width: 90%;
+        margin-left: 0px;
+    }
+}
+
 button.specific-result-button {
     width: 100%;
     padding: 5px;

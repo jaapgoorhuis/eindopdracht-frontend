@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Dit project is ontwikkeld door Jaap Goorhuis als eindopdracht voor de frontend leerlijn 2022 op Hogeschool NOVI.
 
-## Available Scripts
+####beschrijving
+Door middel van deze applicatie kun je minimaal 3 en maximaal 10 locaties in Gelderland
+filteren op basis van temperatuur, regenval en windkracht. De applicatie geeft een top 3 resultaat
+terug. 
 
-In the project directory, you can run:
+![img.png](img.png)
+## Stappenplan project opzetten
 
-### `npm start`
+Dit project is gedownload zonder de npm dependecies. 
+Om deze bestanden naar het project te downloaden voer je het volgende command uit
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`npm install`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Dit installeert alle benodigde dependicies
 
-### `npm test`
+Als dit geinstalleerd is kun je het project starten door middel van het volgende command
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`npn run start`
+
+Het project word nu lokaal opgezet en is klaar voor gebruik
+## Beschikbare Scripts
+
+In de projectfolder kun je de volgende scripts uitvoeren:
+
+### `npm install`
+Dit installeerd alle benodigde dependecies. Run dit command als eerste om de applicatie te installeren.
+
+### `npm run start`
+Hiermee start de applicatie. 
+Standaard word de applicatie gerund op poort 3000. Als deze poort niet beschikbaar is zal de app vragen of 
+je een andere poort wilt gebruiken. 
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Voer dit command uit als je de app klaar wilt maken voor productie.
+Dit bundeld react in de productie mode en optimaliseerd de build voor de beste prestaties.
+De build is zo klein mogelijk gemaakt.
+De app is klaar om uitgegeven te worden!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## API Key
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Om de applicatie te kunnen gebruiken heb je een API Key nodig.
 
-### `npm run eject`
+API Key:
+`654b427c407676476a170bec7c42758d`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Plaats deze key in het bestand: src - context - Authcontext.js op regel 13 tussen de aanhalingstegens.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Eerste gebruik
+Als je de applicatie voor het eerst gebruik moet je eerst een account aanmaken.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Dit kun je doen door naar de http://localhost:3000/signup pagina te gaan en hier een account aan te maken.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Vervolgens word je doorgestuurd naar de inlog pagina en kun je inloggen met de aangemaakte gegevens.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**let op: Het kan zijn dat het account na een uur weer verwijderd word omdat het op de NOVI backend draait.

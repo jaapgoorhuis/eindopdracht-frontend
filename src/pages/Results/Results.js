@@ -14,15 +14,11 @@ function Results() {
             <div className="container">
                 <PageTitle
                     title="3. Resultaten"
-                    description="Hierbij de top 3 resultaten."
+                    description="Hierbij de top 3 resultaten. Als er minder locaties aan de criteria voldoen, worden hier minder locaties weergeven."
                 />
-                <div className="page-content">
-
-
+                <div className="page-content-centered">
                             <CompareResults/>
-
                     <button className="submit-button absolute-button" onClick={history.goBack}>Vorige</button>
-
                 </div>
             </div>
         </>

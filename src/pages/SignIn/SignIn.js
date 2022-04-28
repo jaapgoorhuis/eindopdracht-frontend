@@ -3,50 +3,31 @@ import './SignIn.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faAt, faLock, faRightToBracket, faUserPlus} from "@fortawesome/free-solid-svg-icons";
 import {AuthContext} from "../../context/AuthContext";
-import {Link, useHistory} from 'react-router-dom';
+import {Link, useHistory, useLocation} from 'react-router-dom';
 import axios from "axios";
 import {useForm} from "react-hook-form";
 
 function SignIn() {
     const History = useHistory();
     const { register, handleSubmit, formState: { errors } } = useForm();
-
     const {logIn, isauth} = useContext(AuthContext);
-    const [inputs, setInputs] = useState({
-        status:'pending',
-    });
     const [serverError, toggleServerError] = useState(false);
 
-
-        async function signUserIn(data) {
-            toggleServerError(false);
-            try {
-                const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin', {
-                    username:data.username,
-                    password: data.password,
-                });
-                setInputs( {
-                    ...inputs,
-                    status: 'done',
-                });
-                if(inputs.status === 'done') {
-                    logIn(response.data);
-                }
-                else {
-                    console.log('loading');
-                }
-            }
-
-            catch(e) {
-                console.error(e);
-                console.log(e.response);
-                setInputs( {
-                    ...inputs,
-                    status: 'done',
-                });
-                toggleServerError(true);
-            }
+    async function signUserIn(data) {
+        toggleServerError(false);
+        try {
+            const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin', {
+                username:data.username,
+                password: data.password,
+            });
+            logIn(response.data);
         }
+        catch(e) {
+            console.error(e);
+            console.log(e.response);
+            toggleServerError(true);
+        }
+    }
 
     return (
         <>
@@ -83,7 +64,6 @@ function SignIn() {
                             {errors.password && <p className="small-error-message">Dit veld is verplicht</p> }
                             {serverError && <p className="small-error-message">De gegevens komen niet overeen</p> }
                         </div>
-
                         <button
                             type="submit"
                             className="login-button submit-button"
@@ -91,7 +71,6 @@ function SignIn() {
                             <i><FontAwesomeIcon icon={faRightToBracket}/></i>
                             Inloggen
                         </button>
-
                         <Link to="/signup">
                             <button
                                 type="button"
@@ -104,7 +83,6 @@ function SignIn() {
                     </form>
                 </div>
             </div>
-
             }
         </>
     )

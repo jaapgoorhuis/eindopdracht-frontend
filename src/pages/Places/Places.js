@@ -19,7 +19,6 @@ function Places() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-
         async function fetchPlaces() {
             //first set all errors to false
             toggleError(false);
@@ -29,38 +28,28 @@ function Places() {
 
             try {
                 let cancel;
-                //set loading api to true before request
                 setLoading(true);
-                //execute api request by searched location
                 const result = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${location},NL&appid=${ApiKey}`,{cancelToken: new axios.CancelToken (c=> cancel = c)});
-                console.log(result);
-
-                //set loading to false after api request
                 setLoading(false);
 
                 //first check if place not already exists in placename state
                 if(placeNames.toString().toLowerCase().includes(location.toLowerCase().toString())) {
-                    //else toggle error
                     togglePlaceDuplicate(true);
                 }
                 else {
                     //then check if place exist in province
                     if(result.data[0].state !== 'Gelderland') {
-                        //else toggle error
                         toggleWrongProvince(true);
                     }
 
                     //then check if limit of places is reached
                     else if (placeNames.length < 10) {
-                        //if all conditions matches, add everytime one result to old state
                         setPlaceNames([...placeNames, `${result.data[0].name}`]);
                     }
-                    //else give error
                     else {
                         togglePlaceLimit(true);
                     }
                 }
-                //cancel the request
                 return () => cancel();
 
             } catch (e) {
@@ -68,12 +57,10 @@ function Places() {
                 toggleError(true);
             }
         }
-        // call function if location exists
         if(location) {
             fetchPlaces();
 
         }
-        // code executes when location changes
     }, [location]);
 
     useEffect(() => {
@@ -87,7 +74,6 @@ function Places() {
         }
     }, [placeNames]);
 
-    //if api request still loading, return message loading
     if(loading) return "Loading...";
 
     function removeItems() {
@@ -143,7 +129,6 @@ function Places() {
                         {placeNames.length > 0 &&
                             <button className="search-button" onClick={removeItems}>Reset</button>
                         }
-
                     </div>
                     {placeNames.length > 0 &&
                     <div className="footer-box">
