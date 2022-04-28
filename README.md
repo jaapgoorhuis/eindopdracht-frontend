@@ -10,12 +10,12 @@ terug.
 ![img.png](img.png)
 ## Stappenplan project opzetten
 
-Dit project is gedownload zonder de npm dependecies. 
+Dit project bevat geen node modules. 
 Om deze bestanden naar het project te downloaden voer je het volgende command uit
 
 `npm install`
 
-Dit installeert alle benodigde dependicies
+Dit installeert alle benodigde node modules
 
 Als dit geinstalleerd is kun je het project starten door middel van het volgende command
 
