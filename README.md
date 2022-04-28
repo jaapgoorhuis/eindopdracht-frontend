@@ -48,7 +48,7 @@ Om de applicatie te kunnen gebruiken heb je een API Key nodig.
 API Key:
 `654b427c407676476a170bec7c42758d`
 
-Plaats deze key in het bestand: src - context - Authcontext.js op regel 13 tussen de aanhalingstegens.
+Plaats deze key in het bestand: src - context - Authcontext.js op regel 13 tussen de aanhalingstekens.
 
 ## Eerste gebruik
 Als je de applicatie voor het eerst gebruik moet je eerst een account aanmaken.
