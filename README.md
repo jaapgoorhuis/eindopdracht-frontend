@@ -27,7 +27,22 @@ Het project word nu lokaal opgezet en is klaar voor gebruik
 In de projectfolder kun je de volgende scripts uitvoeren:
 
 ### `npm install`
-Dit installeerd alle benodigde dependecies. Run dit command als eerste om de applicatie te installeren.
+Dit installeert alle benodigde dependecies. Run dit command als eerste om de applicatie te installeren.
+
+### `npm i <package>`
+Hiermee kun je een package installeren
+
+### `npm uninstall <name>`
+Hiermee kun je een package verwijderen
+
+### `npm outdated -g --depth=0`
+Hiermee kun je alle outdated packages updaten
+
+### `npm update -g <package>`
+Hiermee kun je een specifieke package updaten
+
+### `npm list`
+Weergeeft een lijst met alle node modules
 
 ### `npm run start`
 Hiermee start de applicatie. 
